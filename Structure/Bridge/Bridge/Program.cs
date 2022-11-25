@@ -62,6 +62,20 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
         }
 
+        public class Windows11 : ReaderApp
+        {
+            public string? TextRaw { get; set; }
+            public Windows11(IDisplayFormatter displayFormatter, string? textRaw) : base(displayFormatter)
+            {
+                TextRaw = textRaw;
+             }
+
+            public override void Display()
+            {
+                _displayFormatter.Display("Aplicacion utilizada desde Windows 7 \n" + Text);
+            }
+        }
+
         static void Main(string[] args)
         {
             ReaderApp appWindows7 = new Windows7(new NormalDisplay()) { Text = "Aprendiendo Bridge" };
